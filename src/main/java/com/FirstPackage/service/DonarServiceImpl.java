@@ -1,6 +1,7 @@
 package com.FirstPackage.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,11 +24,26 @@ public class DonarServiceImpl implements DonarService {
 	}
 
 	@Override
-	public List<DonarDto> getAllDonar() {
+	public List<Donar> getAllDonar() {
 		// TODO Auto-generated method stub
-		return null;
+		return donarRepository.findAll();
 	}
 	
+	@Override
+	public Donar updateDonarById(int id, Donar donar) {
+		// TODO Auto-generated method stub
+		Optional<Donar> d=donarRepository.findById(id);
+		return donarRepository.save(donar);
+	}
+
+	@Override
+	public String deleteDonarById(int id) {
+		// TODO Auto-generated method stub
+		donarRepository.deleteById(id);
+		return null;
+	}
+
+		
 	
 private DonarDto convertToDto(Donar donar) {
 	DonarDto donarDto=new DonarDto();
@@ -61,6 +77,7 @@ private Donar convertToEntity(DonarDto donarDto) {
 	return donar;
 	
 }
+
 
 }
 
