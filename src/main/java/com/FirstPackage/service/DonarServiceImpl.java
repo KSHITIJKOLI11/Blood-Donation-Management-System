@@ -69,7 +69,7 @@ private Donar convertToEntity(DonarDto donarDto) {
 	donar.setDonarAddress(donarDto.getDonarAddress());
 	donar.setDonarEmail(donarDto.getDonarEmail());
 	donar.setDonarAge(donarDto.getDonarAge());
-	donar.setDonarPhno(donar.getDonarPhno());
+	donar.setDonarPhno(donarDto.getDonarPhno());
 	donar.setDonarCity(donarDto.getDonarCity());
 	donar.setDonarBloodType(donarDto.getDonarBloodType());
 	donar.setDonarBloodQuantity(donarDto.getDonarBloodQuantity());
