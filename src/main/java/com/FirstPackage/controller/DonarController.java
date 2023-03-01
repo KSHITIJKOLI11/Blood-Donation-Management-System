@@ -47,5 +47,10 @@ public class DonarController {
 		return new ResponseEntity<String>(donarService.deleteDonarById(id),HttpStatus.OK);
 	}
 	
+	@GetMapping("/findbybt/{donarBloodType}")
+	public ResponseEntity<List<Donar>> findByDonarBloodType(@PathVariable(value="donarBloodType") String donarBloodType){
+		return new ResponseEntity<List<Donar>>(donarService.findByDonarBloodType(donarBloodType), HttpStatus.OK);
+	}
+	
 	
 }

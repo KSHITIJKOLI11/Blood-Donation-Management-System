@@ -42,7 +42,10 @@ public class DonarServiceImpl implements DonarService {
 		donarRepository.deleteById(id);
 		return null;
 	}
-
+	
+	public List<Donar> findByDonarBloodType(String donarBloodType){
+		return donarRepository.findByDonarBloodType(donarBloodType);
+	}
 		
 	
 private DonarDto convertToDto(Donar donar) {
