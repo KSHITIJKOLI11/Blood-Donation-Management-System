@@ -4,10 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import javax.persistence.*;
 
 
-
+@CrossOrigin
 @Entity
 public class Donar {
 	

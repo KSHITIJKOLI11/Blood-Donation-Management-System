@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +22,7 @@ import com.FirstPackage.dto.*;
 import com.FirstPackage.entity.Donar;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v1/donar")
 public class DonarController {
 	
@@ -37,9 +39,9 @@ public class DonarController {
 		return new ResponseEntity<List<Donar>>(donarService.getAllDonar(), HttpStatus.OK);
 	}
    	
-	@PutMapping("/updateDonar/{id}")
-	public ResponseEntity<Donar>updateDonarById(@PathVariable int id,@RequestBody Donar donar ){
-	return new ResponseEntity<Donar>(donarService.updateDonarById(id, donar), HttpStatus.OK);	
+	@PutMapping("/updateDonar")
+	public ResponseEntity<DonarDto>updateDonarById(@RequestBody DonarDto donarDto ){
+	    return new ResponseEntity<DonarDto>(donarService.updateDonarById(donarDto), HttpStatus.OK);	
 	}
 	
 	@DeleteMapping("/deleteDonar/{id}")
@@ -52,5 +54,27 @@ public class DonarController {
 		return new ResponseEntity<List<Donar>>(donarService.findByDonarBloodType(donarBloodType), HttpStatus.OK);
 	}
 	
+	@GetMapping("/findbycity/{donarCity}")
+	public ResponseEntity<List<Donar>> findByDonarCity(@PathVariable(value="donarCity") String donarCity){
+		return new ResponseEntity<List<Donar>>(donarService.findByDonarCity(donarCity), HttpStatus.OK);
+	}
+	
+	@GetMapping("/getbyid/{id}")
+	public ResponseEntity<Donar> getDonarById(@PathVariable int id){
+		return new ResponseEntity<Donar>(donarService.getDonarById(id), HttpStatus.OK);
+	}
+	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+

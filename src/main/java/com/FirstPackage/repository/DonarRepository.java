@@ -12,4 +12,7 @@ public interface DonarRepository extends JpaRepository<Donar, Integer> {
 	
 	List<Donar> findByDonarBloodType(@PathVariable(value = "donarBloodType") String donarBloodType);
 	
+	List<Donar> findByDonarCity(@PathVariable(value = "donarCity") String donarCity);
+	
+	
 }

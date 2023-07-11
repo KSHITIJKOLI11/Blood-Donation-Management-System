@@ -30,10 +30,10 @@ public class DonarServiceImpl implements DonarService {
 	}
 	
 	@Override
-	public Donar updateDonarById(int id, Donar donar) {
+	public DonarDto updateDonarById(DonarDto donarDto) {
 		// TODO Auto-generated method stub
-		Optional<Donar> d=donarRepository.findById(id);
-		return donarRepository.save(donar);
+//		Optional<Donar> d=donarRepository.findById(id);
+		return convertToDto(donarRepository.save(convertToEntity(donarDto)));
 	}
 
 	@Override
@@ -45,8 +45,22 @@ public class DonarServiceImpl implements DonarService {
 	
 	public List<Donar> findByDonarBloodType(String donarBloodType){
 		return donarRepository.findByDonarBloodType(donarBloodType);
-	}
 		
+	}
+	
+
+	public List<Donar> findByDonarCity(String donarCity) {
+		// TODO Auto-generated method stub
+		return donarRepository.findByDonarCity(donarCity);
+	}
+    
+	@Override
+	public Donar getDonarById(int id) {
+		// TODO Auto-generated method stub
+		Optional<Donar> o= donarRepository.findById(id); 
+		return donarRepository.getById(id);
+	}
+	
 	
 private DonarDto convertToDto(Donar donar) {
 	DonarDto donarDto=new DonarDto();

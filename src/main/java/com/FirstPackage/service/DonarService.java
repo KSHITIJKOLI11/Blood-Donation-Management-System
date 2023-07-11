@@ -14,10 +14,14 @@ public interface DonarService {
 	
 	List<Donar> getAllDonar();
 
-	Donar updateDonarById(int id, Donar donar);
+	DonarDto updateDonarById(DonarDto donarDto);
 	
 	String deleteDonarById(int id);
 	
 	List<Donar> findByDonarBloodType(@PathVariable(value = "donarBloodType") String donarBloodType);
+	
+	List<Donar> findByDonarCity(@PathVariable(value = "donarCity") String donarCity);
+	
+	Donar getDonarById(int id);
 
 }

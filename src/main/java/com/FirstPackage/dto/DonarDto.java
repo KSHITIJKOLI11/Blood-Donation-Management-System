@@ -1,5 +1,7 @@
 package com.FirstPackage.dto;
 
+
+
 public class DonarDto {
 	
 	private int donarId;
